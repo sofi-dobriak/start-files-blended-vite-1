@@ -1,5 +1,5 @@
+import formatTimeToNow from '../helpers/formatTimeToNow';
 import styles from './BlogCard.module.css';
-import { formatDistanceToNow } from 'date-fns';
 
 const BlogCard = ({
   poster,
@@ -10,8 +10,6 @@ const BlogCard = ({
   avatar,
   postedAt,
 }) => {
-  const timeAgo = formatDistanceToNow(postedAt, { addSuffix: true });
-
   return (
     <>
       <h2>BlogCard</h2>
@@ -30,7 +28,7 @@ const BlogCard = ({
             <img className={styles.avatar} src={avatar} alt="Jane Doe" />
             <div>
               <h3 className={styles.userName}>{name}</h3>
-              <small className={styles.date}>{timeAgo}</small>
+              <small className={styles.date}>{formatTimeToNow(postedAt)}</small>
             </div>
           </div>
         </div>
